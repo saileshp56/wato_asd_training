@@ -112,7 +112,7 @@
                 int nx = x + dir.first;
                 int ny = y + dir.second;
 
-                if (nx < 0 || ny < 0 || nx >= current_map_.info.width || ny >= current_map_.info.height || seen_map[std::make_tuple(x, y)] < g_cost
+                if (nx < 0 || ny < 0 || nx >= current_map_.info.width || ny >= current_map_.info.height || (seen_map.find(std::make_tuple(nx, ny)) != seen_map.end() && seen_map[std::make_tuple(nx, ny)] < g_cost)
                 || current_map_.data[ny * current_map_.info.width + nx] != 0) {
                     continue;
                 }
